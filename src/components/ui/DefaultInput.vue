@@ -16,8 +16,7 @@ type Emit = {
 
 const emit = defineEmits<Emit>()
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const props = defineProps<Props>()
+defineProps<Props>()
 
 function handleChangeInput(event: Event) {
     const target = event.target as HTMLInputElement
@@ -38,7 +37,7 @@ function handleChangeInput(event: Event) {
 
 </template>
 
-<style>
+<style scoped>
 .inputClass {
     display: flex;
     flex-direction: column;

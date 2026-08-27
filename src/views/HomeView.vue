@@ -42,7 +42,7 @@ const invalidName = computed<boolean>(() => triedStartGame.value && !haveName.va
                     <label for="myName" class="labelFor">Digite o seu nome</label>
                 </template>
             </DefaultInput>
-            <DefaultButton @handle-click="startGame" class="startGameButton">
+            <DefaultButton @handle-click="startGame" class="startGameButton" variant="primary">
                 <p>Jogar!</p>
             </DefaultButton>
         </div>
@@ -98,9 +98,7 @@ const invalidName = computed<boolean>(() => triedStartGame.value && !haveName.va
     }
 }
 
-.startGameButton {
-    background-color: #3a5ac5;
-    border-color: #7d96ea;
+.gameInput .startGameButton {
     margin-top: 38px;
 
     @media screen and (max-width: 568px) {
@@ -108,10 +106,6 @@ const invalidName = computed<boolean>(() => triedStartGame.value && !haveName.va
         max-width: 27rem;
         margin-top: 8px;
     }
-}
-
-.startGameButton:hover {
-    background-color: #4a6ad8;
 }
 
 
@@ -154,7 +148,8 @@ const invalidName = computed<boolean>(() => triedStartGame.value && !haveName.va
     h1 {
         font-size: 2.7rem;
         color: #e5e7eb;
-        letter-spacing: -0.5px;
+        font-weight: 600;
+
 
         @media screen and (max-width: 768px) {
             font-size: 2.2rem;
