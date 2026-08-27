@@ -44,7 +44,6 @@ function goToHome() {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 20px 32px;
     margin-top: 30px;
 
     @media screen and (max-width: 568px) {

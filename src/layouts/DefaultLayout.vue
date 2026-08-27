@@ -18,7 +18,6 @@
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    padding-bottom: 20px;
 }
 
 .headerProject {
