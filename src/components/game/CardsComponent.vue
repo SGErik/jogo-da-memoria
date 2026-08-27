@@ -61,6 +61,7 @@ const matchedContainer = computed(() => props.cardStatus === "matched")
     background-color: transparent;
     border: none;
     perspective: 800px;
+    transition: opacity 0.2s;
 
     @media screen and (min-width: 940px) and (min-height: 1050px) {
         font-size: 4.9rem;
@@ -79,6 +80,11 @@ const matchedContainer = computed(() => props.cardStatus === "matched")
     }
 }
 
+
+.cardContainer:disabled {
+    opacity: 1;
+    color: inherit;
+}
 
 .cardInner {
     position: relative;
@@ -119,6 +125,10 @@ const matchedContainer = computed(() => props.cardStatus === "matched")
 
 .matchedContainer .cardFace {
     border-color: green;
+}
+
+.cardContainer.matchedContainer {
+    opacity: 0.75;
 }
 
 .starSymbol {
