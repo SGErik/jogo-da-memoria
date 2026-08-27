@@ -36,6 +36,7 @@ function restartGame() {
 }
 
 
+defineExpose({ restartGame })
 
 
 
