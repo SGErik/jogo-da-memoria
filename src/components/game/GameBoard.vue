@@ -4,6 +4,7 @@ import CardsComponent from './CardsComponent.vue';
 import VictoryComponent from './VictoryComponent.vue';
 import { computed, onMounted } from 'vue';
 import type { CardsType } from '@/types/CardType.ts';
+import { FlipCardsTime } from '@/constants/data.ts';
 
 
 
@@ -18,10 +19,14 @@ onMounted(() => {
     restartGame()
 })
 
+let hideCardsTimer: ReturnType<typeof setTimeout>
+
 function hideCards() {
-    setTimeout(() => {
+    clearTimeout(hideCardsTimer)
+
+    hideCardsTimer = setTimeout(() => {
         cards.value = afterCards.value
-    }, 3000)
+    }, FlipCardsTime + 3000)
 }
 
 
@@ -30,6 +35,8 @@ function restartGame() {
     hideCards()
 }
 
+
+defineExpose({ restartGame })
 
 
 
@@ -51,12 +58,40 @@ function restartGame() {
 .boardContainer {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 28px;
-    max-width: 768px;
+    gap: 32px;
+    max-width: 900px;
 
 
-    @media screen and (max-width: 1366px) {
-        grid-template-columns: repeat(5, 1fr);
+    @media screen and (min-width: 940px) and (min-height: 1050px) {
+        gap: 36px;
+    }
+
+    @media screen and (max-height: 950px) {
+        gap: 30px;
+    }
+
+    @media screen and (max-height: 900px) {
+        gap: 28px;
+    }
+
+    @media screen and (max-height: 850px) {
+        gap: 26px;
+    }
+
+    @media screen and (max-height: 800px) {
+        gap: 24px;
+    }
+
+    @media screen and (max-height: 750px) {
+        gap: 22px;
+    }
+
+    @media screen and (max-height: 700px) {
+        gap: 20px;
+    }
+
+    @media screen and (max-height: 650px) {
+        gap: 16px;
     }
 
     @media screen and (max-width: 768px) {

@@ -5,10 +5,17 @@ import { TotalPairs } from '@/constants/data';
 import router from '@/router';
 import { useUserStore } from '@/stores/userStore';
 import { storeToRefs } from 'pinia';
+import { ref } from 'vue';
 
 const userStore = useUserStore()
 
 const { userName, countRetry, countPairs } = storeToRefs(userStore)
+
+const gameBoard = ref<InstanceType<typeof GameBoard> | null>(null)
+
+function restartGame() {
+    gameBoard.value?.restartGame()
+}
 
 function goToHome() {
     router.push("/")
@@ -27,11 +34,16 @@ function goToHome() {
                     <p>Pares: <strong>{{ countPairs }}/{{ TotalPairs }}</strong></p>
                 </div>
 
-                <DefaultButton class="backButton" @handle-click="goToHome">
-                    <p>Voltar ao início</p>
-                </DefaultButton>
+                <div class="gameActions">
+                    <DefaultButton @handle-click="restartGame">
+                        <p>Reiniciar</p>
+                    </DefaultButton>
+                    <DefaultButton @handle-click="goToHome">
+                        <p>Voltar ao início</p>
+                    </DefaultButton>
+                </div>
             </div>
-            <GameBoard>
+            <GameBoard ref="gameBoard">
 
             </GameBoard>
         </main>
@@ -44,7 +56,7 @@ function goToHome() {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 20px;
 
     @media screen and (max-width: 568px) {
         padding: 0 14px 28px;
@@ -81,7 +93,7 @@ function goToHome() {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    gap: 40px;
+    gap: 28px;
 
     @media screen and (max-width: 568px) {
         gap: 24px;
@@ -91,11 +103,21 @@ function goToHome() {
 .infosUser {
     display: flex;
     align-items: center;
-    width: 100%;
     justify-content: space-between;
-    max-width: 670px;
-    gap: 40px;
+    width: 100%;
+    max-width: 792px;
+    gap: 28px;
 
+    /* acompanha a largura do tabuleiro, que cresce nas telas mais altas */
+    @media screen and (min-width: 940px) and (min-height: 1050px) {
+        max-width: 896px;
+    }
+
+    @media screen and (max-width: 900px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
 
     p {
         font-size: 1.2rem;
@@ -115,27 +137,33 @@ function goToHome() {
 }
 
 
-.backButton {
+.gameActions {
+    display: flex;
+    align-items: center;
     flex-shrink: 0;
-    width: auto;
-    padding: 0 16px;
-    margin-top: 0;
-    white-space: nowrap;
-}
+    gap: 10px;
 
-.backButton>p {
-    font-size: 1rem;
+    .defaultButton {
+        width: auto;
+        padding: 0 16px;
+        margin-top: 0;
+        white-space: nowrap;
+    }
+
+    p {
+        font-size: 1rem;
+
+        @media screen and (max-width: 390px) {
+            font-size: 0.85rem;
+        }
+    }
 
     @media screen and (max-width: 390px) {
-        font-size: 0.9rem;
-    }
-}
+        gap: 8px;
 
-@media screen and (max-width: 900px) {
-    .infosUser {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
+        .defaultButton {
+            padding: 0 12px;
+        }
     }
 }
 </style>

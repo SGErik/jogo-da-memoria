@@ -63,9 +63,20 @@ function handleChangeInput(event: Event) {
     }
 }
 
+.inputDefault:focus {
+    outline: none;
+    border-color: #7d96ea;
+    background-color: #dbeafe3d;
+    box-shadow: 0 0 0 3px #3a5ac54d;
+}
+
 .inputDefault[aria-invalid="true"] {
     border-color: #f87171;
     background-color: #f871711f;
+}
+
+.inputDefault[aria-invalid="true"]:focus {
+    box-shadow: 0 0 0 3px #f871713d;
 }
 
 .inputErrorMessage {
@@ -76,6 +87,6 @@ function handleChangeInput(event: Event) {
 
 
 .inputDefault::placeholder {
-    color: rgb(0, 0, 0);
+    color: #e5e7eb66;
 }
 </style>

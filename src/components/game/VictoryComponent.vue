@@ -41,7 +41,8 @@ function goToRanking() {
 
             <header class="victoryHeader">
                 <h2>Parabéns, {{ userName }}!</h2>
-                <p>Você encontrou todos os pares em <strong>{{ retryLabel }}</strong>.</p>
+                <p>Você encontrou todos os pares em:</p>
+                <strong class="victoryRetry">{{ retryLabel }}</strong>
             </header>
 
             <div class="victoryActions">
@@ -100,6 +101,14 @@ function goToRanking() {
 
     strong {
         color: #bedbff;
+    }
+}
+
+.victoryRetry {
+    font-size: 1.3rem;
+
+    @media screen and (max-width: 390px) {
+        font-size: 1.15rem;
     }
 }
 

@@ -13,7 +13,11 @@ export const useGame = () => {
 
     })).sort(() => Math.random() - 0.5))
 
-    const cards = ref<CardsType[]>(initialCards.value)
+    const cards = ref<CardsType[]>(initialCards.value.map((card, index) => ({
+        ...card,
+        id: index + 1,
+        status: "hidden"
+    })))
 
     const blockCards = ref(false)
 
@@ -28,12 +32,22 @@ export const useGame = () => {
     function startGame() {
         resetRetry()
         resetPairs()
-        blockCards.value = false
+        blockCards.value = true
 
-        cards.value = [...initialCards.value].sort(() => Math.random() - 0.5).map((card) => ({
+        cards.value = cards.value.map((card) => ({
             ...card,
-            status: "revealed"
+            status: "hidden"
         }))
+
+        setTimeout(() => {
+            cards.value = [...initialCards.value].sort(() => Math.random() - 0.5).map((card, index) => ({
+                ...card,
+                id: index + 1,
+                status: "revealed"
+            }))
+
+            blockCards.value = false
+        }, 400)
     }
 
 

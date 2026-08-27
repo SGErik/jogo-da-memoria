@@ -47,6 +47,8 @@ const invalidName = computed<boolean>(() => triedStartGame.value && !haveName.va
             </DefaultButton>
         </div>
 
+        <hr class="divider">
+
         <RankingComponent />
     </section>
 </template>
@@ -69,6 +71,19 @@ const invalidName = computed<boolean>(() => triedStartGame.value && !haveName.va
     }
 }
 
+.divider {
+    width: 100%;
+    max-width: 35rem;
+    height: 1px;
+    border: none;
+    background-color: #2f3f55;
+    margin-top: 40px;
+
+    @media screen and (max-width: 568px) {
+        margin-top: 28px;
+    }
+}
+
 .labelFor {
     color: white;
     font-size: 20px;
@@ -84,6 +99,8 @@ const invalidName = computed<boolean>(() => triedStartGame.value && !haveName.va
 }
 
 .startGameButton {
+    background-color: #3a5ac5;
+    border-color: #7d96ea;
     margin-top: 38px;
 
     @media screen and (max-width: 568px) {
@@ -93,21 +110,35 @@ const invalidName = computed<boolean>(() => triedStartGame.value && !haveName.va
     }
 }
 
+.startGameButton:hover {
+    background-color: #4a6ad8;
+}
+
 
 
 .gameInput {
     display: flex;
     width: 100%;
+    max-width: 39rem;
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
-    margin-top: 20px;
+    padding: 24px;
+    margin-top: 32px;
     gap: 12px;
+    background-color: #bedbff14;
+    border: 1px solid #bedbff33;
+    border-radius: 16px;
 
     @media screen and (max-width: 568px) {
         flex-direction: column;
         align-items: center;
+        padding: 20px;
         gap: 4px;
+    }
+
+    @media screen and (max-width: 390px) {
+        padding: 16px;
     }
 }
 
@@ -123,6 +154,7 @@ const invalidName = computed<boolean>(() => triedStartGame.value && !haveName.va
     h1 {
         font-size: 2.7rem;
         color: #e5e7eb;
+        letter-spacing: -0.5px;
 
         @media screen and (max-width: 768px) {
             font-size: 2.2rem;
@@ -140,6 +172,7 @@ const invalidName = computed<boolean>(() => triedStartGame.value && !haveName.va
     p {
         color: #e5e7ebc5;
         font-size: 1rem;
+        max-width: 34rem;
 
         @media screen and (max-width: 568px) {
             font-size: 0.95rem;
