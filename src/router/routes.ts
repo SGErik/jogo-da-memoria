@@ -17,7 +17,7 @@ export const routes: RouteRecordRaw[] = [{
         path: "game",
         name: "game",
         component: GameView,
-        meta: {title: 'Jogo da Mémoria'}
+        meta: {title: 'Jogo da Mémoria', requiresAuth: true}
     }
 
 ]
