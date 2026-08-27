@@ -4,6 +4,7 @@ import CardsComponent from './CardsComponent.vue';
 import VictoryComponent from './VictoryComponent.vue';
 import { computed, onMounted } from 'vue';
 import type { CardsType } from '@/types/CardType.ts';
+import { FlipCardsTime } from '@/constants/data.ts';
 
 
 
@@ -18,10 +19,14 @@ onMounted(() => {
     restartGame()
 })
 
+let hideCardsTimer: ReturnType<typeof setTimeout>
+
 function hideCards() {
-    setTimeout(() => {
+    clearTimeout(hideCardsTimer)
+
+    hideCardsTimer = setTimeout(() => {
         cards.value = afterCards.value
-    }, 3000)
+    }, FlipCardsTime + 3000)
 }
 
 
@@ -29,6 +34,7 @@ function restartGame() {
     startGame()
     hideCards()
 }
+
 
 
 

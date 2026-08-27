@@ -7,6 +7,9 @@ export const MaxRankingPlayers = 5
 
 export const RankingMedals = ["🥇", "🥈", "🥉"]
 
+/* precisa acompanhar a duração da transição do .cardInner no CardsComponent */
+export const FlipCardsTime = 400
+
 export const CardsSymbols: CardsType[] = [
     {
         id: 1,
