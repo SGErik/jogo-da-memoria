@@ -73,7 +73,7 @@ const invalidName = computed<boolean>(() => triedStartGame.value && !haveName.va
 
 .divider {
     width: 100%;
-    max-width: 35rem;
+    max-width: 39rem;
     height: 1px;
     border: none;
     background-color: #2f3f55;
