@@ -3,7 +3,7 @@ import type { CardsType } from "@/types/CardType";
 
 export const RankingStorageKey = "memoryGameRanking"
 
-export const MaxRankingPlayers = 10
+export const MaxRankingPlayers = 5
 
 export const RankingMedals = ["🥇", "🥈", "🥉"]
 

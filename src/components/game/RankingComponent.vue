@@ -47,7 +47,7 @@ function retryLabel(countRetry: number) {
     flex-direction: column;
     width: 100%;
     max-width: 35rem;
-    margin-top: 48px;
+    margin-top: 24px;
     gap: 16px;
 
     @media screen and (max-width: 568px) {
