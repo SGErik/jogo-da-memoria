@@ -1,12 +1,18 @@
 <script setup lang="ts">
 import GameBoard from '@/components/game/GameBoard.vue';
+import DefaultButton from '@/components/ui/DefaultButton.vue';
 import { TotalPairs } from '@/constants/data';
+import router from '@/router';
 import { useUserStore } from '@/stores/userStore';
 import { storeToRefs } from 'pinia';
 
 const userStore = useUserStore()
 
 const { userName, countRetry, countPairs } = storeToRefs(userStore)
+
+function goToHome() {
+    router.push("/")
+}
 
 </script>
 
@@ -15,9 +21,15 @@ const { userName, countRetry, countPairs } = storeToRefs(userStore)
     <div class="mainContainer">
         <main class="gameBoard">
             <div class="infosUser">
-                <p>Jogador: <strong>{{ userName }}</strong></p>
-                <p>Tentativas: <strong>{{ countRetry }}</strong></p>
-                <p>Pares: <strong>{{ countPairs }}/{{ TotalPairs }}</strong></p>
+                <div class="infosUserContent">
+                    <p>Jogador: <strong>{{ userName }}</strong></p>
+                    <p>Tentativas: <strong>{{ countRetry }}</strong></p>
+                    <p>Pares: <strong>{{ countPairs }}/{{ TotalPairs }}</strong></p>
+                </div>
+
+                <DefaultButton class="backButton" @handle-click="goToHome">
+                    <p>Voltar ao início</p>
+                </DefaultButton>
             </div>
             <GameBoard>
 
@@ -35,6 +47,13 @@ const { userName, countRetry, countPairs } = storeToRefs(userStore)
     margin-top: 30px;
 }
 
+.infosUserContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
 .gameBoard {
     display: flex;
     flex-direction: column;
@@ -45,7 +64,10 @@ const { userName, countRetry, countPairs } = storeToRefs(userStore)
 
 .infosUser {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    max-width: 670px;
     gap: 40px;
 
 
@@ -55,5 +77,25 @@ const { userName, countRetry, countPairs } = storeToRefs(userStore)
     }
 
 
+}
+
+
+.backButton {
+    width: auto;
+    padding: 0 16px;
+    margin-top: 0;
+    white-space: nowrap;
+}
+
+.backButton>p {
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 900px) {
+    .infosUser {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
 }
 </style>
