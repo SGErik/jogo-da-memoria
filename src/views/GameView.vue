@@ -22,7 +22,7 @@ function goToHome() {
         <main class="gameBoard">
             <div class="infosUser">
                 <div class="infosUserContent">
-                    <p>Jogador: <strong>{{ userName }}</strong></p>
+                    <p class="playerName">Jogador: <strong>{{ userName }}</strong></p>
                     <p>Tentativas: <strong>{{ countRetry }}</strong></p>
                     <p>Pares: <strong>{{ countPairs }}/{{ TotalPairs }}</strong></p>
                 </div>
@@ -61,12 +61,19 @@ function goToHome() {
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: 0;
     gap: 18px;
 
     @media screen and (max-width: 568px) {
         flex-wrap: wrap;
         gap: 6px 16px;
     }
+}
+
+.playerName {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .gameBoard {
@@ -93,6 +100,7 @@ function goToHome() {
     p {
         font-size: 1.2rem;
         color: white;
+        white-space: nowrap;
 
         @media screen and (max-width: 768px) {
             font-size: 1.05rem;
@@ -108,6 +116,7 @@ function goToHome() {
 
 
 .backButton {
+    flex-shrink: 0;
     width: auto;
     padding: 0 16px;
     margin-top: 0;
