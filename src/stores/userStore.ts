@@ -5,6 +5,7 @@ export const useUserStore = defineStore('user', () => {
 
     const userName = ref("")
     const countRetry = ref(0)
+    const countPairs = ref(0)
 
     function incrementRetry() {
         return countRetry.value++
@@ -14,7 +15,15 @@ export const useUserStore = defineStore('user', () => {
         countRetry.value = 0
     }
 
+    function incrementPairs() {
+        return countPairs.value++
+    }
 
-    return { userName, countRetry, incrementRetry, resetRetry }
+    function resetPairs() {
+        countPairs.value = 0
+    }
+
+
+    return { userName, countRetry, countPairs, incrementRetry, resetRetry, incrementPairs, resetPairs }
 })
 

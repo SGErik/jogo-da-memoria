@@ -75,3 +75,5 @@ export const CardsSymbols: CardsType[] = [
         status: "revealed"
     }
 ]
+
+export const TotalPairs = CardsSymbols.length

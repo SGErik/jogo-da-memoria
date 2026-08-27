@@ -16,11 +16,12 @@ export const useGame = () => {
     const blockCards = ref(false)
 
     const userStore = useUserStore()
-    const { incrementRetry, resetRetry } = userStore
+    const { incrementRetry, resetRetry, incrementPairs, resetPairs } = userStore
 
 
     function startGame() {
         resetRetry()
+        resetPairs()
         blockCards.value = false
 
         cards.value = [...initialCards.value].sort(() => Math.random() - 0.5).map((card) => ({
@@ -62,6 +63,7 @@ export const useGame = () => {
             if (firstCard?.pairId === secondCard?.pairId) {
                 firstCard!.status = "matched"
                 secondCard!.status = "matched"
+                incrementPairs()
                 blockCards.value = false
                 return
             }

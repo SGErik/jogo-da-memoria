@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import GameBoard from '@/components/game/GameBoard.vue';
+import { TotalPairs } from '@/constants/data';
 import { useUserStore } from '@/stores/userStore';
 import { storeToRefs } from 'pinia';
 
 const userStore = useUserStore()
 
-const { userName, countRetry } = storeToRefs(userStore)
+const { userName, countRetry, countPairs } = storeToRefs(userStore)
 
 </script>
 
@@ -16,6 +17,7 @@ const { userName, countRetry } = storeToRefs(userStore)
             <div class="infosUser">
                 <p>Jogador: <strong>{{ userName }}</strong></p>
                 <p>Tentativas: <strong>{{ countRetry }}</strong></p>
+                <p>Pares: <strong>{{ countPairs }}/{{ TotalPairs }}</strong></p>
             </div>
             <GameBoard>
 
