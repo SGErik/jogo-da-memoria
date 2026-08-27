@@ -54,68 +54,31 @@ const matchedContainer = computed(() => props.cardStatus === "matched")
 
 <style scoped>
 .cardContainer {
-    width: 8.3rem;
-    height: 10.6rem;
+    font-size: clamp(2rem, min(6.5vh, 7.5vw), 4.9rem);
+    width: 2em;
+    height: 2.5em;
     padding: 0;
     background-color: transparent;
     border: none;
     perspective: 800px;
 
     @media screen and (min-width: 940px) and (min-height: 1050px) {
-        width: 9.4rem;
-        height: 11.7rem;
-    }
-
-    @media screen and (max-height: 950px) {
-        width: 7.7rem;
-        height: 9.7rem;
-    }
-
-    @media screen and (max-height: 900px) {
-        width: 7.2rem;
-        height: 9rem;
-    }
-
-    @media screen and (max-height: 850px) {
-        width: 6.6rem;
-        height: 8.3rem;
-    }
-
-    @media screen and (max-height: 800px) {
-        width: 6rem;
-        height: 7.6rem;
-    }
-
-    @media screen and (max-height: 750px) {
-        width: 5.5rem;
-        height: 6.9rem;
-    }
-
-    @media screen and (max-height: 700px) {
-        width: 4.9rem;
-        height: 6.2rem;
-    }
-
-    @media screen and (max-height: 650px) {
-        width: 4rem;
-        height: 5rem;
+        font-size: 4.9rem;
     }
 
     @media screen and (max-width: 768px) {
-        width: 6.2rem;
-        height: 8.8rem;
+        font-size: 3.4rem;
     }
 
     @media screen and (max-width: 568px) {
-        width: 4.8rem;
-        height: 7rem;
+        font-size: 2.4rem;
     }
 
     @media screen and (max-width: 390px) {
-        width: 4.4rem;
-        height: 6.4rem;
+        font-size: 2.2rem;
     }
 }
+
 
 .cardInner {
     position: relative;
@@ -156,55 +119,6 @@ const matchedContainer = computed(() => props.cardStatus === "matched")
 
 .matchedContainer .cardFace {
     border-color: green;
-}
-
-.iconSymbol,
-.starSymbol {
-    font-size: 4.2rem;
-
-    @media screen and (min-width: 940px) and (min-height: 1050px) {
-        font-size: 4.7rem;
-    }
-
-    @media screen and (max-height: 950px) {
-        font-size: 3.9rem;
-    }
-
-    @media screen and (max-height: 900px) {
-        font-size: 3.6rem;
-    }
-
-    @media screen and (max-height: 850px) {
-        font-size: 3.3rem;
-    }
-
-    @media screen and (max-height: 800px) {
-        font-size: 3rem;
-    }
-
-    @media screen and (max-height: 750px) {
-        font-size: 2.7rem;
-    }
-
-    @media screen and (max-height: 700px) {
-        font-size: 2.4rem;
-    }
-
-    @media screen and (max-height: 650px) {
-        font-size: 2rem;
-    }
-
-    @media screen and (max-width: 768px) {
-        font-size: 3.4rem;
-    }
-
-    @media screen and (max-width: 568px) {
-        font-size: 2.6rem;
-    }
-
-    @media screen and (max-width: 390px) {
-        font-size: 2.4rem;
-    }
 }
 
 .starSymbol {
