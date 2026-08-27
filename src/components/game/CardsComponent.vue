@@ -40,10 +40,14 @@ const matchedContainer = computed(() => props.cardStatus === "matched")
 <template>
     <button class="cardContainer" :class="{ 'missedContainer': missedCard, 'matchedContainer': matchedContainer }"
         @click="handleClick" :disabled="blockCard">
-        <Transition name="cardFade" mode="out-in">
-            <span v-if="isFacingUp" key="cardSymbol" class="iconSymbol">{{ symbol }}</span>
-            <span v-else key="cardHidden" class="starSymbol">♦</span>
-        </Transition>
+        <div class="cardInner" :class="{ 'cardFlipped': isFacingUp }">
+            <div class="cardFace cardBack">
+                <span class="starSymbol">♦</span>
+            </div>
+            <div class="cardFace cardFront">
+                <span class="iconSymbol">{{ symbol }}</span>
+            </div>
+        </div>
     </button>
 </template>
 
@@ -52,10 +56,10 @@ const matchedContainer = computed(() => props.cardStatus === "matched")
 .cardContainer {
     width: 7rem;
     height: 10rem;
-    background-color: #bedbff2c;
-    border-radius: 12px;
-    border: 1px solid #bedbff90;
-    transition: all 0.2s;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    perspective: 800px;
 
     @media screen and (max-width: 768px) {
         width: 6.2rem;
@@ -73,16 +77,45 @@ const matchedContainer = computed(() => props.cardStatus === "matched")
     }
 }
 
-.missedContainer {
-    border: 1px solid red !important;
+.cardInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.4s;
 }
 
-.matchedContainer {
-    border: 1px solid green !important;
+.cardFlipped {
+    transform: rotateY(180deg);
 }
 
-.cardContainer:hover {
+.cardFace {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #bedbff2c;
+    border: 1px solid #bedbff90;
+    border-radius: 12px;
+    backface-visibility: hidden;
+    transition: all 0.2s;
+}
+
+.cardFront {
+    transform: rotateY(180deg);
+}
+
+.cardContainer:hover .cardFace {
     background-color: #bedbff5c;
+}
+
+.missedContainer .cardFace {
+    border-color: red;
+}
+
+.matchedContainer .cardFace {
+    border-color: green;
 }
 
 .iconSymbol {
@@ -116,15 +149,5 @@ const matchedContainer = computed(() => props.cardStatus === "matched")
     @media screen and (max-width: 390px) {
         font-size: 2.3rem;
     }
-}
-
-.cardFade-enter-active,
-.cardFade-leave-active {
-    transition: opacity 0.15s;
-}
-
-.cardFade-enter-from,
-.cardFade-leave-to {
-    opacity: 0;
 }
 </style>
