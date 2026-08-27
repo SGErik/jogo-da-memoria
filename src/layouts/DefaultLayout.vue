@@ -2,7 +2,7 @@
     <div class="rootMain">
         <header class="headerProject">
             <RouterLink to="/" class="brandLink">
-                <span class="brandIcon">🐶</span>
+                <span class="brandIcon">🃏</span>
                 <p class="brandName">Jogo da memória</p>
             </RouterLink>
         </header>
