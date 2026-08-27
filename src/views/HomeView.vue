@@ -5,13 +5,27 @@ import DefaultInput from '@/components/ui/DefaultInput.vue';
 import router from '@/router';
 import { useUserStore } from '@/stores/userStore';
 import { storeToRefs } from 'pinia';
+import { computed, ref } from 'vue';
 
 const userInfo = useUserStore()
 const { userName } = storeToRefs(userInfo)
 
+const triedStartGame = ref(false)
+
 function startGame() {
+    triedStartGame.value = true
+
+    if (!haveName.value) {
+        return
+    }
+
     router.push("game")
 }
+
+
+const haveName = computed<boolean>(() => Boolean(userName.value.trim() !== ''))
+
+const invalidName = computed<boolean>(() => triedStartGame.value && !haveName.value)
 
 </script>
 
@@ -22,7 +36,8 @@ function startGame() {
             <p>Encontre todos os pares de carta na menor quantidade de tentativas possíveis!</p>
         </article>
         <div class="gameInput">
-            <DefaultInput name="myName" v-model:value-model="userName">
+            <DefaultInput name="myName" v-model:value-model="userName" :invalid="invalidName"
+                error-message="Por favor, digite seu nome.">
                 <template #labelInput>
                     <label for="myName" class="labelFor">Digite o seu nome</label>
                 </template>
@@ -60,7 +75,7 @@ function startGame() {
     display: flex;
     width: 100%;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     margin-top: 20px;
     gap: 12px;
