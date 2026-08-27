@@ -1,7 +1,9 @@
 import { CardsSymbols } from "@/constants/data"
+import { useRankingStore } from "@/stores/rankingStore"
 import { useUserStore } from "@/stores/userStore"
 import type { CardsType } from "@/types/CardType"
-import { computed, ref } from "vue"
+import { storeToRefs } from "pinia"
+import { computed, ref, watch } from "vue"
 
 
 export const useGame = () => {
@@ -17,6 +19,10 @@ export const useGame = () => {
 
     const userStore = useUserStore()
     const { incrementRetry, resetRetry, incrementPairs, resetPairs } = userStore
+    const { userName, countRetry } = storeToRefs(userStore)
+
+    const rankingStore = useRankingStore()
+    const { savePlayer } = rankingStore
 
 
     function startGame() {
@@ -85,6 +91,14 @@ export const useGame = () => {
 
 
     const finishedGame = computed<boolean>(() => cards.value.every((card) => card.status === "matched"))
+
+    watch(finishedGame, (isFinished) => {
+        if (!isFinished) {
+            return
+        }
+
+        savePlayer(userName.value, countRetry.value)
+    })
 
 
 

@@ -1,6 +1,11 @@
 import type { CardsType } from "@/types/CardType";
 
 
+export const RankingStorageKey = "memoryGameRanking"
+
+export const MaxRankingPlayers = 10
+
+export const RankingMedals = ["🥇", "🥈", "🥉"]
 
 export const CardsSymbols: CardsType[] = [
     {

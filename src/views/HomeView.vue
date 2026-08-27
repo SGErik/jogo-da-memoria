@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import RankingComponent from '@/components/game/RankingComponent.vue';
 import DefaultButton from '@/components/ui/DefaultButton.vue';
 import DefaultInput from '@/components/ui/DefaultInput.vue';
 import router from '@/router';
@@ -30,6 +31,8 @@ function startGame() {
                 <p>Jogar!</p>
             </DefaultButton>
         </div>
+
+        <RankingComponent />
     </section>
 </template>
 
