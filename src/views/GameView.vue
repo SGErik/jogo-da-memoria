@@ -56,7 +56,7 @@ function goToHome() {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 20px;
 
     @media screen and (max-width: 568px) {
         padding: 0 14px 28px;
@@ -93,7 +93,7 @@ function goToHome() {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    gap: 40px;
+    gap: 28px;
 
     @media screen and (max-width: 568px) {
         gap: 24px;
@@ -105,8 +105,13 @@ function goToHome() {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    max-width: 670px;
-    gap: 40px;
+    max-width: 792px;
+    gap: 28px;
+
+    /* acompanha a largura do tabuleiro, que cresce nas telas mais altas */
+    @media screen and (min-width: 940px) and (min-height: 1050px) {
+        max-width: 896px;
+    }
 
     @media screen and (max-width: 900px) {
         flex-wrap: wrap;
