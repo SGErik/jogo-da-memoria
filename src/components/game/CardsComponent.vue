@@ -40,8 +40,10 @@ const matchedContainer = computed(() => props.cardStatus === "matched")
 <template>
     <button class="cardContainer" :class="{ 'missedContainer': missedCard, 'matchedContainer': matchedContainer }"
         @click="handleClick" :disabled="blockCard">
-        <span v-if="isFacingUp" class="iconSymbol">{{ symbol }}</span>
-        <span v-else class="starSymbol">♦</span>
+        <Transition name="cardFade" mode="out-in">
+            <span v-if="isFacingUp" key="cardSymbol" class="iconSymbol">{{ symbol }}</span>
+            <span v-else key="cardHidden" class="starSymbol">♦</span>
+        </Transition>
     </button>
 </template>
 
@@ -87,5 +89,15 @@ const matchedContainer = computed(() => props.cardStatus === "matched")
     @media screen and (max-width: 568px) {
         font-size: 2.6rem;
     }
+}
+
+.cardFade-enter-active,
+.cardFade-leave-active {
+    transition: opacity 0.15s;
+}
+
+.cardFade-enter-from,
+.cardFade-leave-to {
+    opacity: 0;
 }
 </style>
