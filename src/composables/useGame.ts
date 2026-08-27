@@ -29,7 +29,14 @@ export const useGame = () => {
     const { savePlayer } = rankingStore
 
 
+    let flipCardsTimer: ReturnType<typeof setTimeout> | undefined
+    let missedCardsTimer: ReturnType<typeof setTimeout> | undefined
+
+
     function startGame() {
+        clearTimeout(flipCardsTimer)
+        clearTimeout(missedCardsTimer)
+
         resetRetry()
         resetPairs()
         blockCards.value = true
@@ -39,7 +46,7 @@ export const useGame = () => {
             status: "hidden"
         }))
 
-        setTimeout(() => {
+        flipCardsTimer = setTimeout(() => {
             cards.value = [...initialCards.value].sort(() => Math.random() - 0.5).map((card, index) => ({
                 ...card,
                 id: index + 1,
@@ -93,11 +100,11 @@ export const useGame = () => {
             incrementRetry()
 
 
-            setTimeout(() => {
+            missedCardsTimer = setTimeout(() => {
                 firstCard!.status = "hidden"
                 secondCard!.status = "hidden"
                 blockCards.value = false
-            }, 1500)
+            }, 1000)
         }
 
 
