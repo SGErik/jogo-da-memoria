@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { useGame } from '@/composables/useGame.ts';
 import CardsComponent from './CardsComponent.vue';
+import VictoryComponent from './VictoryComponent.vue';
 import { computed, onMounted } from 'vue';
 import type { CardsType } from '@/types/CardType.ts';
 
 
 
 
-const { cards, faceUpCard, blockCards, startGame } = useGame()
+const { cards, faceUpCard, blockCards, finishedGame, startGame } = useGame()
 const afterCards = computed<CardsType[]>(() => cards.value.map((cards) => ({
     ...cards,
     status: "hidden"
@@ -42,6 +43,8 @@ function restartGame() {
         </CardsComponent>
 
     </div>
+
+    <VictoryComponent :open="finishedGame" v-on:handle-restart="restartGame" />
 </template>
 
 <style scoped>

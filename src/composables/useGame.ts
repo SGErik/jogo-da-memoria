@@ -1,7 +1,7 @@
 import { CardsSymbols } from "@/constants/data"
 import { useUserStore } from "@/stores/userStore"
 import type { CardsType } from "@/types/CardType"
-import { ref } from "vue"
+import { computed, ref } from "vue"
 
 
 export const useGame = () => {
@@ -84,12 +84,15 @@ export const useGame = () => {
     }
 
 
+    const finishedGame = computed<boolean>(() => cards.value.every((card) => card.status === "matched"))
+
 
 
     return {
         cards,
         faceUpCard,
         blockCards,
+        finishedGame,
         startGame
     }
 
