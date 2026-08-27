@@ -67,8 +67,6 @@
     width: 2.4rem;
     height: 2.4rem;
     font-size: 22px;
-    background-color: #3a5ac533;
-    border: 1px solid #3a5ac566;
     border-radius: 10px;
 
     @media screen and (max-width: 568px) {
