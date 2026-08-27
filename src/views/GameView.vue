@@ -44,7 +44,18 @@ function goToHome() {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 20px 32px;
     margin-top: 30px;
+
+    @media screen and (max-width: 568px) {
+        padding: 0 14px 28px;
+        margin-top: 22px;
+    }
+
+    @media screen and (max-width: 390px) {
+        padding: 0 14px 24px;
+        margin-top: 18px;
+    }
 }
 
 .infosUserContent {
@@ -52,6 +63,11 @@ function goToHome() {
     align-items: center;
     justify-content: center;
     gap: 18px;
+
+    @media screen and (max-width: 568px) {
+        flex-wrap: wrap;
+        gap: 6px 16px;
+    }
 }
 
 .gameBoard {
@@ -60,6 +76,10 @@ function goToHome() {
     align-items: center;
     width: 100%;
     gap: 40px;
+
+    @media screen and (max-width: 568px) {
+        gap: 24px;
+    }
 }
 
 .infosUser {
@@ -74,6 +94,14 @@ function goToHome() {
     p {
         font-size: 1.2rem;
         color: white;
+
+        @media screen and (max-width: 768px) {
+            font-size: 1.05rem;
+        }
+
+        @media screen and (max-width: 390px) {
+            font-size: 0.95rem;
+        }
     }
 
 
@@ -89,6 +117,10 @@ function goToHome() {
 
 .backButton>p {
     font-size: 1rem;
+
+    @media screen and (max-width: 390px) {
+        font-size: 0.9rem;
+    }
 }
 
 @media screen and (max-width: 900px) {

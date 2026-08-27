@@ -49,6 +49,15 @@ function retryLabel(countRetry: number) {
     max-width: 35rem;
     margin-top: 48px;
     gap: 16px;
+
+    @media screen and (max-width: 568px) {
+        margin-top: 36px;
+    }
+
+    @media screen and (max-width: 390px) {
+        margin-top: 28px;
+        gap: 12px;
+    }
 }
 
 .rankingHeader {
@@ -61,11 +70,23 @@ function retryLabel(countRetry: number) {
         color: #e5e7eb;
         font-size: 1.6rem;
         font-weight: 600;
+
+        @media screen and (max-width: 568px) {
+            font-size: 1.4rem;
+        }
+
+        @media screen and (max-width: 390px) {
+            font-size: 1.25rem;
+        }
     }
 
     p {
         color: #e5e7ebc5;
         font-size: 0.9rem;
+
+        @media screen and (max-width: 390px) {
+            font-size: 0.8rem;
+        }
     }
 }
 
@@ -76,6 +97,11 @@ function retryLabel(countRetry: number) {
     padding: 20px;
     border: 1px dashed #bedbff40;
     border-radius: 12px;
+
+    @media screen and (max-width: 390px) {
+        font-size: 0.85rem;
+        padding: 16px 12px;
+    }
 }
 
 .rankingList {
@@ -95,6 +121,17 @@ function retryLabel(countRetry: number) {
     border: 1px solid #bedbff40;
     border-radius: 10px;
     transition: all 0.2s;
+
+    @media screen and (max-width: 568px) {
+        grid-template-columns: 2.4rem 1fr auto;
+        gap: 8px;
+        padding: 10px 12px;
+    }
+
+    @media screen and (max-width: 390px) {
+        grid-template-columns: 2rem 1fr auto;
+        padding: 10px;
+    }
 }
 
 .rankingItem:hover {
@@ -105,6 +142,10 @@ function retryLabel(countRetry: number) {
     color: #e5e7eb;
     font-size: 1.1rem;
     font-weight: 600;
+
+    @media screen and (max-width: 390px) {
+        font-size: 1rem;
+    }
 }
 
 .playerName {
@@ -113,11 +154,27 @@ function retryLabel(countRetry: number) {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    @media screen and (max-width: 568px) {
+        font-size: 0.95rem;
+    }
+
+    @media screen and (max-width: 390px) {
+        font-size: 0.9rem;
+    }
 }
 
 .playerRetry {
     color: #bedbffdd;
     font-size: 0.9rem;
     white-space: nowrap;
+
+    @media screen and (max-width: 568px) {
+        font-size: 0.8rem;
+    }
+
+    @media screen and (max-width: 390px) {
+        font-size: 0.75rem;
+    }
 }
 </style>

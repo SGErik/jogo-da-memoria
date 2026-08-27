@@ -57,9 +57,19 @@ const matchedContainer = computed(() => props.cardStatus === "matched")
     border: 1px solid #bedbff90;
     transition: all 0.2s;
 
+    @media screen and (max-width: 768px) {
+        width: 6.2rem;
+        height: 8.8rem;
+    }
+
     @media screen and (max-width: 568px) {
         width: 4.8rem;
         height: 7rem;
+    }
+
+    @media screen and (max-width: 390px) {
+        width: 4.4rem;
+        height: 6.4rem;
     }
 }
 
@@ -78,16 +88,33 @@ const matchedContainer = computed(() => props.cardStatus === "matched")
 .iconSymbol {
     font-size: 4rem;
 
+    @media screen and (max-width: 768px) {
+        font-size: 3.4rem;
+    }
 
+    @media screen and (max-width: 568px) {
+        font-size: 2.6rem;
+    }
 
+    @media screen and (max-width: 390px) {
+        font-size: 2.3rem;
+    }
 }
 
 .starSymbol {
     font-size: 4rem;
     color: white;
 
+    @media screen and (max-width: 768px) {
+        font-size: 3.4rem;
+    }
+
     @media screen and (max-width: 568px) {
         font-size: 2.6rem;
+    }
+
+    @media screen and (max-width: 390px) {
+        font-size: 2.3rem;
     }
 }
 

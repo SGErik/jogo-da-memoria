@@ -59,6 +59,10 @@ function clickOnOverlay() {
     border: 1px solid #bedbff40;
     border-radius: 16px;
     box-shadow: 0 18px 40px #0f172a80;
+
+    @media screen and (max-width: 390px) {
+        padding: 24px 18px;
+    }
 }
 
 .modalFade-enter-active,

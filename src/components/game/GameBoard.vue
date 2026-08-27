@@ -61,6 +61,15 @@ function restartGame() {
 
     @media screen and (max-width: 768px) {
         grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    @media screen and (max-width: 568px) {
+        gap: 14px;
+    }
+
+    @media screen and (max-width: 390px) {
+        gap: 12px;
     }
 }
 </style>

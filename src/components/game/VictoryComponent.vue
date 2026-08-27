@@ -66,6 +66,10 @@ function goToRanking() {
 
 .victoryIcon {
     font-size: 3.4rem;
+
+    @media screen and (max-width: 390px) {
+        font-size: 2.8rem;
+    }
 }
 
 .victoryHeader {
@@ -79,11 +83,19 @@ function goToRanking() {
         color: #e5e7eb;
         font-size: 1.7rem;
         font-weight: 600;
+
+        @media screen and (max-width: 390px) {
+            font-size: 1.4rem;
+        }
     }
 
     p {
         color: #e5e7ebc5;
         font-size: 1rem;
+
+        @media screen and (max-width: 390px) {
+            font-size: 0.9rem;
+        }
     }
 
     strong {
@@ -97,10 +109,20 @@ function goToRanking() {
     justify-content: center;
     gap: 12px;
 
+    @media screen and (max-width: 390px) {
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+    }
+
     .defaultButton {
         width: auto;
         padding: 0 20px;
         margin-top: 8px;
+
+        @media screen and (max-width: 390px) {
+            width: 100%;
+        }
     }
 }
 </style>

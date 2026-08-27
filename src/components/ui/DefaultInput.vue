@@ -43,11 +43,13 @@ function handleChangeInput(event: Event) {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    width: 100%;
+    max-width: 27rem;
 
 }
 
 .inputDefault {
-    width: 27rem;
+    width: 100%;
     height: 2.7rem;
     border: 1px solid #bedbff40;
     background-color: #dbeafe2f;
@@ -55,6 +57,10 @@ function handleChangeInput(event: Event) {
     padding: 12px;
     color: white;
     transition: all 0.2s;
+
+    @media screen and (max-width: 390px) {
+        height: 2.5rem;
+    }
 }
 
 .inputDefault[aria-invalid="true"] {
