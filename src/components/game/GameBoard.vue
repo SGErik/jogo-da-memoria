@@ -62,8 +62,8 @@ defineExpose({ restartGame })
     max-width: 768px;
 
 
-    @media screen and (max-width: 1366px) {
-        grid-template-columns: repeat(5, 1fr);
+    @media screen and (max-height: 780px) {
+        gap: 20px;
     }
 
     @media screen and (max-width: 768px) {

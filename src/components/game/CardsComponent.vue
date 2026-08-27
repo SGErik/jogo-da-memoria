@@ -61,6 +61,26 @@ const matchedContainer = computed(() => props.cardStatus === "matched")
     border: none;
     perspective: 800px;
 
+    @media screen and (max-height: 950px) {
+        width: 5.9rem;
+        height: 8.4rem;
+    }
+
+    @media screen and (max-height: 860px) {
+        width: 4.9rem;
+        height: 7rem;
+    }
+
+    @media screen and (max-height: 780px) {
+        width: 4.5rem;
+        height: 6.4rem;
+    }
+
+    @media screen and (max-height: 700px) {
+        width: 3.8rem;
+        height: 5.4rem;
+    }
+
     @media screen and (max-width: 768px) {
         width: 6.2rem;
         height: 8.8rem;
@@ -97,7 +117,7 @@ const matchedContainer = computed(() => props.cardStatus === "matched")
     justify-content: center;
     background-color: #bedbff2c;
     border: 1px solid #bedbff90;
-    border-radius: 12px;
+    border-radius: 8px;
     backface-visibility: hidden;
     transition: all 0.2s;
 }
@@ -118,8 +138,25 @@ const matchedContainer = computed(() => props.cardStatus === "matched")
     border-color: green;
 }
 
-.iconSymbol {
+.iconSymbol,
+.starSymbol {
     font-size: 4rem;
+
+    @media screen and (max-height: 950px) {
+        font-size: 3.4rem;
+    }
+
+    @media screen and (max-height: 860px) {
+        font-size: 3rem;
+    }
+
+    @media screen and (max-height: 780px) {
+        font-size: 2.6rem;
+    }
+
+    @media screen and (max-height: 700px) {
+        font-size: 2.2rem;
+    }
 
     @media screen and (max-width: 768px) {
         font-size: 3.4rem;
@@ -130,24 +167,11 @@ const matchedContainer = computed(() => props.cardStatus === "matched")
     }
 
     @media screen and (max-width: 390px) {
-        font-size: 2.3rem;
+        font-size: 2.4rem;
     }
 }
 
 .starSymbol {
-    font-size: 4rem;
     color: white;
-
-    @media screen and (max-width: 768px) {
-        font-size: 3.4rem;
-    }
-
-    @media screen and (max-width: 568px) {
-        font-size: 2.6rem;
-    }
-
-    @media screen and (max-width: 390px) {
-        font-size: 2.3rem;
-    }
 }
 </style>
