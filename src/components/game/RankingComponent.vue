@@ -1,7 +1,7 @@
 <template>
     <div class="mainContainer">
         <header class="rankingHeader">
-            <h2>🏆 Ranking</h2>
+            <h2>Ranking</h2>
         </header>
 
         <p v-if="bestPlayers.length === 0" class="emptyRanking">
