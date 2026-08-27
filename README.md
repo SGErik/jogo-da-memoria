@@ -31,8 +31,8 @@ colocação no ranking.
 | [Prettier](https://prettier.io/) | Formatação |
 
 A estilização é feita com CSS escrito à mão dentro dos próprios componentes, usando `<style scoped>` e
-aninhamento nativo. O Tailwind CSS está instalado e importado em `src/styles/main.css`, mas serve apenas
-como base — as classes utilitárias não são usadas.
+aninhamento nativo. Não há framework de CSS: o `src/styles/main.css` traz apenas um reset e os estilos
+globais do `body`.
 
 ## Como rodar o projeto
 

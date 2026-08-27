@@ -91,8 +91,7 @@ function goToHome() {
 .gameBoard {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
+    width: fit-content;
     gap: 28px;
 
     @media screen and (max-width: 568px) {
@@ -104,14 +103,9 @@ function goToHome() {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    max-width: 792px;
+    width: 0;
+    min-width: 100%;
     gap: 28px;
-
-    /* acompanha a largura do tabuleiro, que cresce nas telas mais altas */
-    @media screen and (min-width: 940px) and (min-height: 1050px) {
-        max-width: 896px;
-    }
 
     @media screen and (max-width: 900px) {
         flex-wrap: wrap;

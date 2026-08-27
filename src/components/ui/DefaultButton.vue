@@ -1,10 +1,16 @@
 <script setup lang="ts">
 
+type Props = {
+    variant?: "primary" | "secondary";
+}
+
 type Emit = {
     handleClick: []
 }
 
 const emit = defineEmits<Emit>()
+
+defineProps<Props>()
 
 function clickOnButton(e: Event) {
     e.preventDefault()
@@ -19,12 +25,12 @@ function clickOnButton(e: Event) {
 
 
 <template>
-    <button class="defaultButton" @click="clickOnButton">
+    <button class="defaultButton" :class="{ 'primaryButton': variant === 'primary' }" @click="clickOnButton">
         <slot />
     </button>
 </template>
 
-<style>
+<style scoped>
 .defaultButton {
     width: 7rem;
     height: 2.8rem;
@@ -40,7 +46,17 @@ function clickOnButton(e: Event) {
     background-color: #3a5ac5ef;
 }
 
-.defaultButton>p {
+.primaryButton {
+    background-color: #3a5ac5;
+    border-color: #7d96ea;
+}
+
+.primaryButton:hover {
+    background-color: #4a6ad8;
+}
+
+.defaultButton> :slotted(p) {
     color: white;
+    font-size: 1rem;
 }
 </style>
